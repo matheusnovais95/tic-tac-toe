@@ -39,8 +39,11 @@ function Square(props) {
       );
     }
   
+  
+
     render() {
       const winner = calculateWinner(this.state.squares);
+      
       let status;
       if (winner) {
         status = 'Winner: ' + winner;
@@ -65,11 +68,24 @@ function Square(props) {
             {this.renderSquare(6)}
             {this.renderSquare(7)}
             {this.renderSquare(8)}
-          </div>
-        </div>
+          </div>          
+          <Button />
+        </div>        
+      );    
+    }        
+  }
+
+  class Button extends React.Component {
+       
+    render() {      
+      return (
+        <button className="botao-refresh" onClick={() => window.location.reload(false)}>Play Again</button>
       );
     }
   }
+
+  
+  
   
   class Game extends React.Component {
     render() {
@@ -81,11 +97,14 @@ function Square(props) {
           <div className="game-info">
             <div>{/* status */}</div>
             <ol>{/* TODO */}</ol>
-          </div>
+          </div>          
         </div>
+         
+       
       );
-    }
+    }    
   }
+ 
   
   // ========================================
   
